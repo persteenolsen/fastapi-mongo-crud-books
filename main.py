@@ -1,14 +1,26 @@
 from fastapi import FastAPI
 import uvicorn
-from dotenv import dotenv_values
+#from dotenv import dotenv_values
+import os
+import os.path
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from routes.api import router as api_router
-config = dotenv_values(".env")
+#config = dotenv_values(".env")
 
 app = FastAPI()
 
-app.mongodb_client = MongoClient(config["ATLAS_URI"])
-app.database = app.mongodb_client[config["DB_NAME"]]
+
+load_dotenv()
+
+ATLAS_URI = os.getenv('ATLAS_URI')
+
+DB_NAME = os.getenv('DB_NAME')
+
+
+app.mongodb_client = MongoClient(ATLAS_URI)
+app.database = app.mongodb_client.get_database(DB_NAME)
+
 print("Project connected to the MongoDB database!")
 
 #@app.on_event("shutdown")
