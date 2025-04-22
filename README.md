@@ -1,6 +1,6 @@
 # Python + FastAPI + MongoDB at Atlas
 
-# An API handles Books, Addresses and Users
+An API handles Books, Addresses and Users
 
 Last updated:
 
