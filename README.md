@@ -44,7 +44,7 @@ If everything works fine, the message “Project connected to the MongoDB databa
 
 - Use the Swagger for Create a Document in the MongoDB and try to perform other CRUD operations
 
-- You can go to the MongoDB at Atlas to test your data in the Collention / DB / Documents
+- You can go to the MongoDB at Atlas to test your data in the DB / Collections / Documents
 
 When you make a change to the models and start run the Web App the MongoDB should be updated
 
