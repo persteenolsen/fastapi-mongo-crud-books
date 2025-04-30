@@ -4,7 +4,7 @@ An API handles Books, Addresses and Users
 
 Last updated:
 
-- 22-04-2025
+- 30-04-2025
 
 Python Version local:
 
@@ -16,16 +16,15 @@ Python Version at Vercel:
 
 # Get startet
 
-
-1. Clone the repository
+Clone the repository
 
 ```
-2. Create a virtual environment
+Create a virtual environment
 
 ```
 python -m venv <name_of_venv>
 ```
-3. Go to the virtual environment's directory and activate it
+Go to the virtual environment's directory and activate it
 
 For Windows:
 
@@ -33,14 +32,27 @@ For Windows:
 Scripts/activate
 ```
 
-4. Install the requirements
+Install the requirements
 
 ```
 pip3 install -r requirements.txt
 ```
 
-6. Run the API with uvicorn
+# Swagger documentation
+
+FastAPI provides the Swagger documentation of the API where we can use CRUD towards the DB. To access the documentation, we must run uvicorn
 
 ```
 uvicorn main:app --reload
 ```
+
+If everything works fine, the message “Project connected to the MongoDB database!” will show
+
+The FastAPI and Swagger documentation is now available at 
+
+`http://127.0.0.1:8000/docs`
+
+You can go to the MongoDB at Atlas to test your data
+
+Happy use of FastAPI
+
