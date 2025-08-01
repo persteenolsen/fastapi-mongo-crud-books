@@ -20,3 +20,6 @@ router = APIRouter()
 router.include_router(books.router)
 router.include_router(users.router)
 router.include_router(addresses.router)
+
+
+app.include_router(router)
