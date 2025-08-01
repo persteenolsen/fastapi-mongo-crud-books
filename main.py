@@ -10,7 +10,7 @@ from routes.api import router as api_router
 app = FastAPI(
 
     title="Python + FastApi + MongoDB",
-    description="01-08-2025 - FastAPI serving CRUD towards MongoDB at Atlas",
+    description="01-08-2025 - FastAPI serving CRUD handling Books towards MongoDB at Atlas",
     version="0.0.1",
 
     contact={
