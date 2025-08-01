@@ -7,7 +7,19 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from routes.api import router as api_router
 
-app = FastAPI()
+app = FastAPI(
+
+    title="Python FastApi and MongoDB at Atlas",
+    description="01-08-2025 - FastAPI serving CRUD towards MongoDB Atlas",
+    version="0.0.1",
+
+    contact={
+        "name": "Per Olsen",
+        "url": "https://persteenolsen.netlify.app",
+         },
+        
+)
+
 
 load_dotenv()
 
