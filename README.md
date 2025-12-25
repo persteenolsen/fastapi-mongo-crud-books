@@ -4,7 +4,7 @@ An API that handles Books, Addresses and Users
 
 Last updated:
 
-- 07-12-2025
+- 25-12-2025
 
 Python Version local:
 
