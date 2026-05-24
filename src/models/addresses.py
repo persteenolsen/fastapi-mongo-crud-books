@@ -37,8 +37,7 @@ class UpdateAddress(BaseModel):
     state: Optional[str]
     code : Optional[str]
 
-
-# Model to display the address id for deleting
+# Note: Added a new Model AddressList to display the address id for deleting
 class AddressList(BaseModel):
     addr_id: str
     addr_name: Optional[str]

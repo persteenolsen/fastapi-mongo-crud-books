@@ -21,7 +21,7 @@ class User(BaseModel):
             }
         }
 
-# Model to display the user id for deleting      
+# Note: Added a new Model UserList to display the user id for deleting     
 class UserList(BaseModel):
     user_id: str
     name: str

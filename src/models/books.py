@@ -48,3 +48,13 @@ class UpdateBooks(BaseModel):
                 "price": 20
             }
         }
+
+# Note: Added a new Model BooksList to display the book id for deleting
+class BooksList(BaseModel):
+    book_id: str
+    title: Optional[str] 
+    description: Optional[str]
+    price: Optional[float]
+    author: Optional[str]
+    # pages: Optional[int]
+    genre: Optional[str]

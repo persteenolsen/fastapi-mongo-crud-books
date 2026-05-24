@@ -1,6 +1,6 @@
 from fastapi import Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.books import Books, UpdateBooks
+from src.models.books import Books, UpdateBooks, BooksList
 from bson import ObjectId
 
 def get_collection_books(request: Request):
@@ -26,9 +26,22 @@ def update_book(request: Request, id: str, book: UpdateBooks):
 
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Book not found!")
 
+# Note: Added a new Model BooksList to display the book id for deleting
 def list_books(request: Request, limit= int):
-    books = list(get_collection_books(request).find(limit=limit))
-    return books
+    books = list(get_collection_books(request).find().limit(limit))
+
+    return [
+        {
+            "book_id": str(book["_id"]),
+            "title": book["title"],
+            "description": book["description"],
+            "price": book["price"],
+            "author": book["author"],
+            # "pages": book["pages"],
+            "genre": book["genre"]
+        }
+        for book in books
+    ]
 
 def list_books_by_id(request: Request, id: str):
     if (book := get_collection_books(request).find_one({"_id": ObjectId(id)})):
