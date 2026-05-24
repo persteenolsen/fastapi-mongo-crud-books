@@ -13,11 +13,22 @@ def create_addrs(request: Request, user: UserAddress = Body(...)):
     created_addrs = get_collection_addrs(request).find_one({"_id": new_addrs.inserted_id})
     return created_addrs
 
-
+# Note: Added a new Model AddressList to display the address id for deleting
 def list_addrs(request: Request, limit: int):
-    addrs = list(get_collection_addrs(request).find(limit = limit))
-    return addrs
-
+    addrs = list(get_collection_addrs(request).find().limit(limit))
+    
+    return [
+        {
+            "addr_id": str(addr["_id"]),
+            "addr_name": addr["addr_name"],
+            "street": addr["street"],
+            "number": addr["number"],
+            "city": addr["city"],
+            "state": addr["state"],
+            "code": addr["code"]
+        }
+        for addr in addrs
+    ]
 
 def find_addrs(request: Request, user_id: str):
     user_addrs = list(get_collection_addrs(request).find({"user_id": user_id}))

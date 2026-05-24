@@ -4,6 +4,7 @@ from pydantic.networks import EmailStr
 
 
 class User(BaseModel):
+    
     _id: str = Field(default_factory=uuid.uuid4, alias="_id")
     name: str 
     email: EmailStr = Field(unique=True, index=True)

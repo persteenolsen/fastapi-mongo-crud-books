@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 
 
 class UserAddress(BaseModel):
+
     _id: str = Field(default_factory=uuid.uuid4, alias="_id")
     addr_name: str
     user_id: str 
@@ -28,6 +29,18 @@ class UserAddress(BaseModel):
         }
 
 class UpdateAddress(BaseModel):
+
+    addr_name: Optional[str]
+    street: Optional[str]
+    number: Optional[str]
+    city: Optional[str]  
+    state: Optional[str]
+    code : Optional[str]
+
+
+# Model to display the address id for deleting
+class AddressList(BaseModel):
+    addr_id: str
     addr_name: Optional[str]
     street: Optional[str]
     number: Optional[str]
