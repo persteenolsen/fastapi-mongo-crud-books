@@ -13,10 +13,18 @@ def create_user(request: Request, user: User = Body(...)):
     created_user = get_collection_users(request).find_one({"_id": new_user.inserted_id})
     return created_user
 
-
+# Note: Added a new Model UserList to display the user id for deleting
 def list_users(request: Request, limit: int):
-    users = list(get_collection_users(request).find(limit = limit))
-    return users
+    users = get_collection_users(request).find().limit(limit)
+
+    return [
+        {
+            "user_id": str(user["_id"]),
+            "name": user["name"],
+            "email": user["email"]
+        }
+        for user in users
+    ]
 
 
 def find_user(request: Request, id: str):

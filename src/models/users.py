@@ -13,8 +13,15 @@ class User(BaseModel):
         allow_population_by_field_name = True
         schema_extra = {
             "example": {
+     
                 "name": "Dolly",
                 "email": "dollyna@gmail.com",
                 "password": "cachorrinha.fofa.123"
             }
         }
+
+# Model to display the user id for deleting      
+class UserList(BaseModel):
+    user_id: str
+    name: str
+    email: EmailStr
