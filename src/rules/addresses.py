@@ -3,9 +3,10 @@ from fastapi.encoders import jsonable_encoder
 from src.models.addresses import UpdateAddress, UserAddress
 from bson import ObjectId
 
-
+# This file contains the logic for handling the addresses collection in the MongoDB database,
+# including creating, listing, finding, updating and deleting addresses.
 def get_collection_addrs(request: Request):
-  return request.app.database["addresses"]
+    return request.app.database["addresses"]
 
 def create_addrs(request: Request, user: UserAddress = Body(...)):
     addrs = jsonable_encoder(user)

@@ -1,11 +1,12 @@
 from fastapi import Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
-from src.models.books import Books, UpdateBooks, BooksList
+from src.models.books import Books, UpdateBooks
 from bson import ObjectId
 
+# This file contains the logic for handling the books collection in the MongoDB database,
+# including creating, listing, finding, updating and deleting books.
 def get_collection_books(request: Request):
-  return request.app.database["books"]
-
+    return request.app.database["books"]
 
 def create_book(request: Request, book: Books):
     book = jsonable_encoder(book)

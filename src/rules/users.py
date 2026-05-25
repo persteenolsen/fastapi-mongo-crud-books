@@ -3,9 +3,10 @@ from fastapi.encoders import jsonable_encoder
 from src.models.users import User
 from bson import ObjectId
 
-
+# This file contains the logic for handling the users collection in the MongoDB database, 
+# including creating, listing, finding and deleting users.
 def get_collection_users(request: Request):
-  return request.app.database["users"]
+    return request.app.database["users"]
 
 def create_user(request: Request, user: User = Body(...)):
     user = jsonable_encoder(user)
